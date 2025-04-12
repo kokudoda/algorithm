@@ -36,7 +36,7 @@ int main(){
 
     init(&front,&rear);
 
-    for(int i=1;i<=5;i++){
+    for(int i=1;i<=NUM;i++){
         if(enqueue(i*10,front,&rear)==SUCCESS){
             printf("ENQUEUE : %d\n",i*10);
         }
