@@ -30,7 +30,7 @@ void rear_insert(int data,Node** node){  //末尾への挿入
     //あとは挿入前の末尾のnode->nextがnew_nodeを指せるようにすればよい
 
     if(*node==nullptr){ //空の時 head →　nukkptr　の状態
-        *node=new_node;   //head → new_node →　nukkptr となる
+        *node=new_node;   //head → new_node →　nullptr となる
     }
     else{
         Node* rear=*node;
