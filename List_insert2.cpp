@@ -4,6 +4,7 @@ using namespace std;
 typedef struct Node{
     int data;
     Node* next;
+    Node() : data(0), next(nullptr) {}  //コンストラクタ　dataとnextを初期化
 }Node;
 
 void insert(int data,Node** node){
@@ -40,7 +41,7 @@ void rear_insert(int data,Node** node){  //末尾への挿入
     }
 
 }
-void link_print(Node* node){
+void link_print(const Node* node){  
     while(node != nullptr){
         cout << node->data << " ";
         node=node->next;
@@ -49,8 +50,7 @@ void link_print(Node* node){
 }
 
 int main(){
-    Node* head;
-    head=nullptr;
+    Node* head=nullptr;
 
     for(int i=1;i<=5;i++){
     cout << "insert" << i << endl;
