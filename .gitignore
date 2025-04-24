@@ -1,4 +1,4 @@
-.vscode/
+.vscode
 stack.exe
 queue.exe
 RingBufferQueue.exe
