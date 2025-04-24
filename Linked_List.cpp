@@ -6,7 +6,8 @@ class Node{
         int data;
         Node* next;
 
-        Node(int val) : data(val),next(nullptr){}
+        Node(int val) : data(val),next(nullptr){}  //コンストラクタを用意
+                    //nextはnullptrで初期化
 };
 
 class LinkedList{
@@ -14,11 +15,12 @@ class LinkedList{
         Node* head;
 
     public:
-        LinkedList() : head(nullptr){}
+        LinkedList() : head(nullptr){} //コンストラクタ
 
-        ~LinkedList(){
+        ~LinkedList(){  //デストラクタを用意
             clear();
         }
+
         void insert_front(int data);
         void insert_rear(int data);
         void display() const;
@@ -65,7 +67,7 @@ void LinkedList::clear(){
 }
 
 int main(){
-    LinkedList list;
+    LinkedList list;  //headがnullptrで初期化される
 
     for(int i=1;i<=5;i++){
         list.insert_front(i);
