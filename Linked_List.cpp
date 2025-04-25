@@ -21,10 +21,11 @@ class LinkedList{
             clear();
         }
 
-        void insert_front(int data);
-        void insert_rear(int data);
-        void display() const;
-        void clear();
+        void insert_front(int data);  //先頭に挿入
+        void insert_rear(int data);   //末尾に挿入
+        void delete_front();          //先頭を削除
+        void display() const;         //連結リスト表示
+        void clear();                 //メモリ開放
 };
 
 void LinkedList::insert_front(int data){
@@ -45,6 +46,18 @@ void LinkedList::insert_rear(int data){
         }
         tmp->next=new_node;
     }
+}
+
+void LinkedList::delete_front(){
+    if(head==nullptr){
+        cout << "empty" << endl;
+        return ;
+    }
+    int data=head->data;
+    cout << "delete : " << data << endl;
+    Node* tmp=head;
+    head=head->next;
+    delete tmp;
 }
 
 void LinkedList::display()const{
@@ -80,6 +93,9 @@ int main(){
     list.insert_rear(6);
     list.display();
 
+    list.delete_front();
+
+    list.display();
 
     return 0;
 }
