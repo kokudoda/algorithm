@@ -70,13 +70,16 @@ int main(){
     LinkedList list;  //headがnullptrで初期化される
 
     for(int i=1;i<=5;i++){
+        cout << "front insert : " << i << endl;
         list.insert_front(i);
     }
 
     list.display();
 
+    cout << "end insert : " << 6 <<  endl;
     list.insert_rear(6);
     list.display();
+
 
     return 0;
 }
