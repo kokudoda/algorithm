@@ -20,6 +20,14 @@ void tree_display(Node* node,int level){
     }
 }
 
+void traverse_preorder(Node* node){ //行きがけ走査
+    if(node != NULL){
+        printf("%2d ",node->data);
+        traverse_preorder(node->left);
+        traverse_preorder(node->right);
+    }
+}
+
 void tree_free(Node* node){
     if(node != NULL){
         tree_free(node->left);
@@ -61,6 +69,9 @@ int main(){
     root->left->left->right->right=NULL;
 
     tree_display(root,0);
+    printf("\n");
+
+    traverse_preorder(root);
     printf("\n");
 
     tree_free(root);
