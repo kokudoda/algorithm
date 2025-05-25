@@ -14,13 +14,16 @@ class Node{
             delete right;
         }
         void display(int level=0)const;
+        void traverse_pre()const;  //行きがけ順走査
+        void traverse_in()const;   //通りがけ順走査
+        void traverse_po()const;   //帰りがけ順走査
 };
 
 void Node::display(int level)const{
     if(right){
         right->display(level+1);
     }
-    for(int i=0;i<level*4;i++){
+    for(int i=0;i<level*2;i++){
         cout << "_";
     }
     cout << data << endl;
@@ -28,6 +31,36 @@ void Node::display(int level)const{
     if(left){
         left->display(level+1);
     }
+}
+
+void Node::traverse_pre()const{
+    cout << data << " ";
+    if(left){
+        left->traverse_pre();
+    }
+    if(right){
+        right->traverse_pre();
+    }
+}
+
+void Node::traverse_in()const{
+    if(left){
+        left->traverse_in();
+    }
+    cout << data << " ";
+    if(right){
+        right->traverse_in();
+    }
+}
+
+void Node::traverse_po()const{
+    if(left){
+        left->traverse_po();
+    }
+    if(right){
+        right->traverse_po();
+    }
+    cout << data << " ";
 }
 
 int main(){
@@ -42,9 +75,22 @@ int main(){
     root->right->right=new Node(90);
 
     root->display();
+    cout << endl;
+
+    cout << "行きがけ順走査 : ";
+    root->traverse_pre();
+    cout << endl;
+
+    cout << "通りがけ順走査 : ";
+    root->traverse_in();
+    cout << endl;
+
+    cout << "帰りがけ順走査 : ";
+    root->traverse_po();
+    cout << endl;
 
     delete root;
     root=nullptr;
-    
+
     return 0;
 }
