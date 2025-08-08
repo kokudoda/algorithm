@@ -28,6 +28,19 @@ void traverse_preorder(Node* node){ //行きがけ走査
     }
 }
 
+Node* find(Node* node,int data){
+    if(node == NULL){
+        return NULL;
+    }
+    if(data < (node->data)){
+        return find(node->left,data);
+    }
+    if(data > (node->data)){
+        return find(node->right,data);
+    }
+    return node;
+}
+
 void tree_free(Node* node){
     if(node != NULL){
         tree_free(node->left);
@@ -38,6 +51,7 @@ void tree_free(Node* node){
 
 int main(){
     Node* root;
+    Node* node;
 
     root=malloc(sizeof(Node));
     root->data=40;  
@@ -74,6 +88,11 @@ int main(){
     traverse_preorder(root);
     printf("\n");
 
+    printf("%d を探します\n",70);
+    node = find(root,70);
+    if(node != NULL){
+        printf("見つかりました。%d\n",node->data);
+    }
     tree_free(root);
 
     return 0;
