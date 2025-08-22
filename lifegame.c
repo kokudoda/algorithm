@@ -2,8 +2,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define FIELD_WIDTH 24 
-#define FIELD_HEIGHT 24
+#define FIELD_WIDTH 40 
+#define FIELD_HEIGHT 40
 
 int cells[2][FIELD_HEIGHT][FIELD_WIDTH]; //盤面のセルの状態。2つの盤面を用意し、ダブルバッファリング
 int current; //現在の世代
