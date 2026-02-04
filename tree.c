@@ -73,6 +73,20 @@ void postorder(struct Node *node){ //帰りがけ順走査
     printf("%d ",node->data);
 }
 
+//ノードを探索する関数
+struct Node* find(struct Node* node, int data){
+    if(node == NULL){
+        return NULL;
+    }
+    if(node->data > data){
+        return find(node->left,data);
+    }
+    if(node->data < data){
+        return find(node->right,data);
+    }
+    return node;
+}
+
 void free_tree(struct Node *node){
     if(node == NULL){
         return ;
@@ -85,7 +99,7 @@ void free_tree(struct Node *node){
 
 int main(){
     struct Node *root = create_node(40);  //ルートノード40
-    int num;
+    int num,fnum;
     printf("Please enter 10 numbers\n");
     for(int i = 0; i < 10; i++){
         scanf("%d",&num);
@@ -104,6 +118,16 @@ int main(){
     printf("Postorder : ");
     postorder(root);
     printf("\n");
+
+    printf("Please enter the number you want to find\n");
+    scanf("%d",&fnum);
+    struct Node* node = find(root,fnum);
+    if(node != NULL){
+        printf("[%d] found\n",node->data);
+    }
+    else{
+        printf("not found\n");
+    }
 
     free_tree(root);
 
