@@ -56,12 +56,14 @@ void show(struct Node* head){
     printf("NULL\n");
 }
 
-void free_node(struct Node* head){
-    while(head){
-        struct Node* temp = head->next;
-        free(head);
-        head = temp;
+void free_node(struct Node** head){
+    struct Node* current = *head;
+    while(current){
+        struct Node* temp = current->next;
+        free(current);
+        current = temp;
     }
+    *head = NULL; 
 }
 
 int main(){
@@ -79,5 +81,5 @@ int main(){
     pop_front(&head);
     show(head);
 
-    free_node(head);
+    free_node(&head);
 }
