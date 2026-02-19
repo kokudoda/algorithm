@@ -98,14 +98,37 @@ void show()
 
 int main()
 {
+    int num;
     init();
 
-    insert(111);
-    insert(222);
-    insert(332);
-    insert(443);
-    insert(555);
-    insert(999);
+    while(1){
+        printf("Please enter a number(end at -1)\n");
+        scanf("%d",&num);
+
+        if(num == -1){
+            break;
+        }
+        insert(num);
+    }
+    printf("\n");
+    show();
+    printf("\n");
+    
+    printf("Enter the number you want to find\n");
+    scanf("%d",&num);
+    int index = search(num);
+    if(index == -1){
+        printf("Not found\n");
+    }
+    else{
+        printf("[%d] found\n",index);
+    }
+
+    printf("\n");
+
+    printf("Enter the number you want to delete\n");
+    scanf("%d",&num);
+    delete_data(num);
 
     show();
 
