@@ -1,0 +1,47 @@
+#include <stdio.h>
+
+//1000まで素数を表示
+#define NUM 1000
+
+//素数なら1,そうでないなら0を配列に格納するようにする
+#define TRUE 1   
+#define FALSE 0
+
+char array[NUM + 1]; 
+
+//初期化関数
+void init()
+{
+    //すべて素数で初期化
+    for(int i = 1; i <= NUM; i++){
+        array[i] = TRUE; 
+    }
+    //1は素数ではないのでFALSEとする
+    array[1] = FALSE; 
+}
+
+void Eratosthenes()
+{   
+    for(int i = 2; i <= NUM; i++){
+        if(array[i]){
+            //i以外のiの倍数にFALSEを格納していく
+            for(int j = i*2; j <= NUM; j += i){
+                array[j] = FALSE;
+            }
+        }
+    }
+}
+
+int main()
+{
+    init();
+
+    Eratosthenes();
+
+    for(int i = 2; i <= NUM; i++){
+        if(array[i]){
+            printf("%d ",i);
+        }
+    }
+    return 0;
+}
