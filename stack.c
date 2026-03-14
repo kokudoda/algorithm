@@ -33,7 +33,7 @@ int main(){
     int data,top;
     top=0;
 
-    printf("æ•°å­—ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„\n");
+    printf("”’l‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢\n");
     for(int i=0;i<5;i++){
         scanf("%d",&data);
         printf("PUSH : %d\n",data);

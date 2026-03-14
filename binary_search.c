@@ -91,7 +91,7 @@ int main(){
     printf("%d を探します\n",70);
     node = find(root,70);
     if(node != NULL){
-        printf("見つかりました。%d\n",node->data);
+        printf("見つかりました�?%d\n",node->data);
     }
     tree_free(root);
 

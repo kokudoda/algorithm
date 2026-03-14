@@ -39,7 +39,7 @@ int main(){
 
     init(&front,&rear);
 
-    printf("æ•°å€¤ã®å…¥åŠ›\n");
+    printf("”’l‚Ì“ü—Í\n");
     for(int i=0;i<5;i++){
         scanf("%d",&data);
         printf("ENQUEUE : %d\n",data);
