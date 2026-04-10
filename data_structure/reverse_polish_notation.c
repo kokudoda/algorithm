@@ -28,7 +28,7 @@ int rpn()
     int i;
 
     for(i = 0 ; pol[i] != '\0'; i++){
-        //pol[i]‚ª1~9‚Ì”’l‚È‚çpush
+        //pol[i]‚ª0~9‚Ì”’l‚È‚çpush
         if('0' <= pol[i] && pol[i] <= '9'){
             push(&sp,CtoI(pol[i]));
         }
